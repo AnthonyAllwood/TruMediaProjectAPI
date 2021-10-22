@@ -52,21 +52,14 @@ export default {
     name: 'Player',
     async asyncData({ $axios, params }){
     try{
-      let player = $axios.$get(`https://trumediaprojectapi.herokuapp.com/api/nfl/player/${params.id}`);
-      
-      const [playerResponse] = await Promise.all([
-        player
-      ])
-      console.log(playerResponse)
+      let player = await $axios.$get(`http://localhost:4000/api/nfl/player/${params.id}`);
 
       return {
-        playerGames: playerResponse.result
+        playerGames: player.result
       }
     }catch(err){
       console.log(err);
     }
   }
-
 }
-
 </script>

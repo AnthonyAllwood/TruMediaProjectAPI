@@ -29,34 +29,19 @@
 <script>
 export default {
   name: 'Home',
-  data () {
-    return {
-      showToken: null
-    }
-  }, 
-  methods: {
-    refreshPage() {
-      window.location.reload()
-    }
-  },
   async asyncData({ $axios }){
     try{
-      let token = $axios.$get('https://trumediaprojectapi.herokuapp.com/api/token');
-      let nflPlayers = $axios.$get('https://trumediaprojectapi.herokuapp.com/api/nfl/players')
-      const [tokenResponse, playersResponse ] = await Promise.all([
-        token, nflPlayers
-      ])
-      console.log(tokenResponse);
-      console.log(playersResponse)
+      let token = await $axios.$get('http://localhost:4000/api/token');
+      let nflPlayers = await $axios.$get('http://localhost:4000/api/nfl/players');
 
       return {
-        token: tokenResponse.result.token,
-        players: playersResponse.result
+        token: token.result.token,
+        players: nflPlayers.result
       }
     }catch(err){
       console.log(err);
     }
-  },
+  }
 
 }
 </script>
