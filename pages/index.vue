@@ -31,8 +31,8 @@ export default {
   name: 'Home',
   async asyncData({ $axios }){
     try{
-      let token = await $axios.$get('http://localhost:4000/api/token');
-      let nflPlayers = await $axios.$get('http://localhost:4000/api/nfl/players');
+      let token = await $axios.$get('https://trumediaprojectapi.herokuapp.com/api/token');
+      let nflPlayers = await $axios.$get('https://trumediaprojectapi.herokuapp.com/api/nfl/players');
 
       return {
         token: token.result.token,
