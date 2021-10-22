@@ -41,8 +41,8 @@ export default {
   },
   async asyncData({ $axios }){
     try{
-      let token = $axios.$get('http://localhost:4000/api/token');
-      let nflPlayers = $axios.$get('http://localhost:4000/api/nfl/players')
+      let token = $axios.$get('https://trumediaprojectapi.herokuapp.com/api/token');
+      let nflPlayers = $axios.$get('https://trumediaprojectapi.herokuapp.com/api/nfl/players')
       const [tokenResponse, playersResponse ] = await Promise.all([
         token, nflPlayers
       ])
