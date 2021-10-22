@@ -34,6 +34,9 @@ export default {
       let token = await $axios.$get('https://trumediaprojectapi.herokuapp.com/api/token');
       let nflPlayers = await $axios.$get('https://trumediaprojectapi.herokuapp.com/api/nfl/players');
 
+      console.log(token);
+      console.log(nflPlayers);
+
       return {
         token: token.result.token,
         players: nflPlayers.result
